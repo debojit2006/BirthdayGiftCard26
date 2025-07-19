@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message For You</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="welcome-scene" class="scene active">
+        <div class="card">
+            <h1>A Little Note...</h1>
+            <p>...if you can catch it!</p>
+        </div>
+        <button id="runaway-btn">💌 Open</button>
+    </div>
+
+    <div id="letter-modal" class="modal">
+        <div class="letter-content">
+            <span class="close-btn">&times;</span>
+            <p><strong>To Bahnishikha,</strong></p>
+            <p>Hey you 🌸</p>
+            <p>I just wanted to take a moment and let you know how genuinely grateful I am to have you in my life. You have this calm way of making everything around you feel a little more peaceful — like sitting near a window while it rains, or hearing your favorite old song when you least expect it.</p>
+            <p>Conversations with you never feel forced. They're easy, real, and somehow always leave me smiling afterward. It's rare to find someone who can just be — no drama, no show, just pure and true. You’re that kind of rare.</p>
+            <p>And maybe it’s just me, but the way you see the world? It's something else. The way you notice the little things, the way you care quietly — it all speaks louder than you know. People like that stay with you, even in silence.</p>
+            <p>Sometimes, in the middle of an ordinary day, I’ll catch myself smiling out of nowhere — and more often than not, it’s something you said or did. Funny how some people make the background of your life feel a bit more vivid. Like maybe the colors were always there… but they only started making sense after someone helped you see them properly.</p>
+            <p>You probably won’t even realize how much your presence means to those around you. And that’s what makes it all the more beautiful.</p>
+            <p>Anyway, just wanted to say thanks — for being you. 🌷</p>
+            <br>
+            <p><em>No expectations. Just appreciation.</em><br><em>Always rooting for you,</em></p>
+            <p><em>— Debojit</em></p>
+        </div>
+    </div>
+
+    <div id="constellation-scene" class="scene">
+        <div id="instruction-text">Some connections light up the world. Tap the brightest stars to reveal one.</div>
+        <svg id="star-canvas"></svg>
+        <div id="reveal-word">Gratitude</div>
+    </div>
+
+    <audio id="bg-music" src="assets/bg-music.mp3" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
