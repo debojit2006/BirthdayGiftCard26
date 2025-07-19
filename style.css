@@ -1,0 +1,107 @@
+/* Basic Reset & Body Style */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e0c3fc, #8ec5fc); /* Initial Background */
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Scene Management */
+.scene { display: none; }
+.scene.active { display: block; }
+
+/* --- Scene 1: Welcome & Button --- */
+#welcome-scene .card {
+    position: absolute;
+    top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; color: white;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    width: 90%;
+}
+#welcome-scene h1 { font-size: 2.8rem; }
+#welcome-scene p { font-size: 1.2rem; }
+
+#runaway-btn {
+    position: absolute; top: 60%; left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px; border: none; border-radius: 50px;
+    background-color: #ff69b4; color: white;
+    font-size: 1.1rem; font-weight: bold; cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: top 0.3s ease-out, left 0.3s ease-out;
+    width: 200px; text-align: center;
+}
+
+/* --- Scene 2: Letter Modal --- */
+.modal {
+    display: none; position: fixed;
+    z-index: 1000; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.letter-content {
+    background-color: #fefefe; margin: 5% auto; padding: 30px;
+    border-radius: 10px; max-width: 650px; width: 90%;
+    max-height: 85vh; overflow-y: auto; position: relative;
+    font-family: 'Lora', serif; line-height: 1.8; font-size: 1.1rem;
+}
+.letter-content p { margin-bottom: 1.2em; }
+.close-btn {
+    position: absolute; top: 15px; right: 25px;
+    color: #aaa; font-size: 30px; font-weight: bold; cursor: pointer;
+}
+.close-btn:hover { color: #000; }
+
+/* --- Scene 3: Constellation Game --- */
+#constellation-scene {
+    width: 100%; height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    transition: opacity 1s ease-in-out;
+}
+#star-canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+.interactive-star {
+    fill: white; cursor: pointer;
+    animation: pulse 2s infinite;
+}
+.connected-star { fill: #61dafb; animation: none; }
+.constellation-line {
+    stroke: rgba(97, 218, 251, 0.5); stroke-width: 2;
+    stroke-dasharray: 1000; stroke-dashoffset: 1000;
+    animation: draw-line 1s linear forwards;
+}
+@keyframes pulse {
+    0% { r: 5px; opacity: 0.8; }
+    50% { r: 7px; opacity: 1; }
+    100% { r: 5px; opacity: 0.8; }
+}
+@keyframes draw-line { to { stroke-dashoffset: 0; } }
+
+#instruction-text {
+    position: absolute; top: 15%; width: 100%;
+    text-align: center; color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem; padding: 0 20px;
+    animation: fade-in-text 2s forwards;
+}
+#reveal-word {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; font-size: 4rem; font-family: 'Lora', serif;
+    opacity: 0; pointer-events: none;
+    text-shadow: 0 0 15px #fff, 0 0 25px #61dafb;
+    transition: opacity 2s ease-in-out;
+}
+@keyframes fade-in-text { from { opacity: 0; } to { opacity: 0.7; } }
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 600px) {
+    #welcome-scene h1 { font-size: 2rem; }
+    #welcome-scene p { font-size: 1rem; }
+    .letter-content { padding: 25px; }
+    #instruction-text { font-size: 1rem; }
+    #reveal-word { font-size: 3rem; }
+}
